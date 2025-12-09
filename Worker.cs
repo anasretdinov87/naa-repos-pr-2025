@@ -6,5 +6,13 @@
         private string position;
         private decimal salary;
         private DateTime employmentDate;
+
+        public Worker()
+        {
+            surnameInitials = "Unknown";
+            position = "Unknown";
+            salary = 0;
+            employmentDate = new DateTime(1900, 1, 1);
+        }
     }
 }
