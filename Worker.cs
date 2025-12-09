@@ -94,7 +94,7 @@
             employmentDate = new DateTime(1900, 1, 1);
         }
         //Метод изменения фамилии и инициалов работника
-        public void SetSurnameInitial(string value)
+        public void SetSurnameInitials(string value)
         {
             if (!string.IsNullOrWhiteSpace(value))
             {
@@ -105,7 +105,19 @@
                 GetExceptionMessage("surnameInitials");
             }
         }
-        //Вызывает ошибку в случае некорректного ввода
+        //Метод изменения должности работника
+        public void SetPosition(string value)
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                this.position = value;
+            }
+            else
+            {
+                GetExceptionMessage("position");
+            }
+        }
+        //Метод для вызыва ошибки в случае некорректного ввода
         private void GetExceptionMessage(string field)
         {
             switch (field)
