@@ -3,9 +3,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Флаг продолжать ли ввод работников
-        Boolean isWorkNotComplete = true;
-
+        
+        Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
         List<Worker> workerList = new List<Worker>();
         while (isWorkNotComplete) {
             Console.WriteLine("Команды: w - для ввода нового работника, s - для поиска работников с определенным стажем, exit - выход из програмы");
@@ -13,9 +12,8 @@ class Program
             string command = Console.ReadLine()??"no_command";
             switch (command)
             {
-                case "w":
-                    //Флаг корректности ввода фамилии и инициалов
-                    Boolean isSurnameInitialsNotValid = true;
+                case "w":                    
+                    Boolean isSurnameInitialsNotValid = true;  //Флаг корректности ввода фамилии и инициалов
                     while (isSurnameInitialsNotValid)
                     {
                         Console.Write("Введите фамилию и инициалы работника:");
@@ -28,29 +26,40 @@ class Program
                         {
                             isSurnameInitialsNotValid = false;
                         }
-                    }
-                    //Флаг корректности ввода должности
-                    Boolean isPositionNotValid = true;
+                    }                     
+                    Boolean isPositionNotValid = true; //Флаг корректности ввода должности
                     while (isPositionNotValid)
                     {
                         Console.Write("Введите название должности работника:");
                         string position = Console.ReadLine();
                         if (string.IsNullOrEmpty(position))
                         {
-                            Console.WriteLine("Ошибка ввода названия должности работника. Значение не может быть пустым. Повторите ввод.")
+                            Console.WriteLine("Ошибка ввода названия должности работника. Значение не может быть пустым. Повторите ввод.");
                         }
                         else
                         {
                             isPositionNotValid = false;
                         }
                     }
-                    Boolean isSalaryNotValid = true;
+                    Boolean isSalaryNotValid = true;  //Флаг корректности ввода зарплаты
                     while (isSalaryNotValid)
                     {
-
+                        Console.Write("Введите зарплату работника:");
+                        string salary = Console.ReadLine();
+                        decimal dec_salary = 0;
+                        if (!(decimal.TryParse(salary, out dec_salary)))
+                        {
+                            Console.WriteLine("Ошибка ввода зарплаты. Некорректное значение. Повторите ввод.");
+                        } else if (dec_salary < 0)
+                        {
+                            Console.WriteLine("Ошибка ввода зарплаты. Значение не может быть меньше нуля. Повторите ввод.");
+                        }
+                        else
+                        {
+                            isSalaryNotValid = false;
+                        }
                     }
-                    Console.Write("Введите зарплату работника:");
-                    string salary = Console.ReadLine();
+                    
                     Console.Write("Введите год поступление на работу:");
                     string hireYear = Console.ReadLine();                     
                     break;
