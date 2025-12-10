@@ -117,6 +117,20 @@
                 GetExceptionMessage("position");
             }
         }
+        //Метод изменения зарплаты
+        public void SetSalary(decimal value)
+        {
+            if (!(value < 0))
+            {
+                this.salary = value;
+            }
+            else
+            {
+                GetExceptionMessage("salary");
+            }                
+        }
+        //Метод изменения дня поступления на работы
+
         //Метод для вызыва ошибки в случае некорректного ввода
         private void GetExceptionMessage(string field)
         {
