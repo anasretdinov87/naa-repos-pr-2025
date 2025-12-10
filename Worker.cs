@@ -9,7 +9,7 @@
         //Зарплата
         private decimal salary;
         //Год поступления на работу
-        private DateTime employmentDate;
+        private UInt16 hireYear;
 
         //Конструктор по умолчанию
         public Worker()
@@ -17,10 +17,10 @@
             surnameInitials = "Unknown";
             position = "Unknown";
             salary = 0;
-            employmentDate = new DateTime(1900, 1, 1);
+            hireYear = 0;
         }
         //Конструктор с четыремя параметрами
-        public Worker(string surnameInitials, string position, decimal salary, DateTime employmentDate)
+        public Worker(string surnameInitials, string position, decimal salary, UInt16 hireYear)
         {
             if (string.IsNullOrWhiteSpace(surnameInitials))
             {
@@ -33,9 +33,8 @@
             if (salary < 0)
             {
                 GetExceptionMessage("salary");
-            }
-            DateTime checkDate = new DateTime(1900, 1, 1);
-            if (employmentDate < checkDate)
+            }             
+            if (hireYear < 1995)
             {
                 GetExceptionMessage("employmentDate");
             }
@@ -43,7 +42,7 @@
             this.surnameInitials = surnameInitials;
             this.position = position;
             this.salary = salary;
-            this.employmentDate = employmentDate;
+            this.hireYear = hireYear;
         }
         //Конструктор с одним параметром
         public Worker(string surnameInitials)
@@ -55,7 +54,7 @@
             this.surnameInitials = surnameInitials;
             position = "Unknown";
             salary = 0;
-            employmentDate = new DateTime(1900, 1, 1);
+            hireYear = 0;
         }
         //Конструктор с двумя параметрами
         public Worker(string surnameInitials, string position)
@@ -71,7 +70,7 @@
             this.surnameInitials = surnameInitials;
             this.position = position;
             salary = 0;
-            employmentDate = new DateTime(1900, 1, 1);
+            hireYear = 0;
         }
         //Конструктор с тремя параметрами
         public Worker(string surnameInitials, string position, decimal salary)
@@ -91,7 +90,7 @@
             this.surnameInitials = surnameInitials;
             this.position = position;
             this.salary = salary;
-            employmentDate = new DateTime(1900, 1, 1);
+            hireYear = 0;
         }
         //Метод изменения фамилии и инициалов работника
         public void SetSurnameInitials(string value)
@@ -130,12 +129,12 @@
             }                
         }
         //Метод изменения дня поступления на работы
-        public void SetEmploymentDate(DateTime value)
+        public void SetEmploymentDate(UInt16 value)
         {
             DateTime checkDate = new DateTime(1900, 1, 1);
-            if (!(value < checkDate))
+            if (!(value < 1995))
             {
-                this.employmentDate = value;
+                this.hireYear = value;
             }
             else
             {
@@ -152,6 +151,16 @@
         {
             return this.position;
         }
+        //Метод отображения зарплаты
+        public string GetSalary()
+        {
+            return this.salary.ToString();
+        }
+        //Метод отображения года поступления на работу
+        public string GetHireYear()
+        {
+            return this.hireYear.ToString();
+        }
         //Метод для вызыва ошибки в случае некорректного ввода
         private void GetExceptionMessage(string field)
         {
@@ -164,7 +173,7 @@
                 case "salary":
                     throw new ArgumentException("Salary cannot by less than zero");
                 case "employmentDate":
-                    throw new ArgumentException("Employment date cannot be earlier than  1 January 1995");
+                    throw new ArgumentException("Hire year cannot be earlier than 1995");
             }
         }
     }
