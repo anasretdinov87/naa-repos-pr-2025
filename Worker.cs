@@ -142,6 +142,16 @@
                 GetExceptionMessage("employmentDate");
             }
         }
+        //Метод отображения фамилии и инициалов сотрудника
+        public string GetSurnameInitials()
+        {
+            return this.surnameInitials;
+        }
+        //Метод отображения названия занимаемой должности
+        public string GetPosition()
+        {
+            return this.position;
+        }
         //Метод для вызыва ошибки в случае некорректного ввода
         private void GetExceptionMessage(string field)
         {
