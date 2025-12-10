@@ -130,7 +130,18 @@
             }                
         }
         //Метод изменения дня поступления на работы
-
+        public void SetEmploymentDate(DateTime value)
+        {
+            DateTime checkDate = new DateTime(1900, 1, 1);
+            if (!(value < checkDate))
+            {
+                this.employmentDate = value;
+            }
+            else
+            {
+                GetExceptionMessage("employmentDate");
+            }
+        }
         //Метод для вызыва ошибки в случае некорректного ввода
         private void GetExceptionMessage(string field)
         {
