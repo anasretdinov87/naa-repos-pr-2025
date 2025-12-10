@@ -59,9 +59,14 @@ class Program
                             isSalaryNotValid = false;
                         }
                     }
-                    
-                    Console.Write("Введите год поступление на работу:");
-                    string hireYear = Console.ReadLine();                     
+                    Boolean isHireYearNotValid = true; //Флаг корректности ввода года поступления на работу
+                    while (isHireYearNotValid)
+                    {
+                        Console.Write("Введите год поступление на работу:");
+                        string hireYear = Console.ReadLine();
+                        Uint16 currentYear
+                    }
+                                         
                     break;
                 case "s":
                     break;
