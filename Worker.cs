@@ -9,7 +9,7 @@
         //Зарплата
         private decimal salary;
         //Год поступления на работу
-        private UInt16 hireYear;
+        private int hireYear;
 
         //Конструктор по умолчанию
         public Worker()
@@ -20,7 +20,7 @@
             hireYear = 0;
         }
         //Конструктор с четыремя параметрами
-        public Worker(string surnameInitials, string position, decimal salary, UInt16 hireYear)
+        public Worker(string surnameInitials, string position, decimal salary, int hireYear)
         {
             if (string.IsNullOrWhiteSpace(surnameInitials))
             {
@@ -129,7 +129,7 @@
             }                
         }
         //Метод изменения дня поступления на работы
-        public void SetEmploymentDate(UInt16 value)
+        public void SetEmploymentDate(int value)
         {
             DateTime checkDate = new DateTime(1900, 1, 1);              
             if (!(value < 1995))

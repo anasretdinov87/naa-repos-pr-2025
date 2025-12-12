@@ -7,6 +7,10 @@ class Program
         Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
         List<Worker> workerList = new List<Worker>();
         while (isWorkNotComplete) {
+            string surnameInitials = "";
+            string position = "";
+            decimal dec_salary = 0;
+            int hireYear = 0;
             Console.WriteLine("Команды: w - для ввода нового работника, s - для поиска работников с определенным стажем, exit - выход из програмы");
             Console.Write("Ввод команды:");
             string command = Console.ReadLine()??"no_command";
@@ -17,7 +21,7 @@ class Program
                     while (isSurnameInitialsNotValid)
                     {
                         Console.Write("Введите фамилию и инициалы работника:");
-                        string surnameInitials = Console.ReadLine();
+                        surnameInitials = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(surnameInitials))
                         {
                             Console.WriteLine("Ошибка ввода фамилии и инициалов работника. Значение не может быть пустым. Повторите ввод.");
@@ -31,7 +35,7 @@ class Program
                     while (isPositionNotValid)
                     {
                         Console.Write("Введите название должности работника:");
-                        string position = Console.ReadLine();
+                        position = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(position))
                         {
                             Console.WriteLine("Ошибка ввода названия должности работника. Значение не может быть пустым. Повторите ввод.");
@@ -45,8 +49,7 @@ class Program
                     while (isSalaryNotValid)
                     {
                         Console.Write("Введите зарплату работника:");
-                        string salary = Console.ReadLine();
-                        decimal dec_salary = 0;
+                        string salary = Console.ReadLine();                        
                         if (!(decimal.TryParse(salary, out dec_salary)))
                         {
                             Console.WriteLine("Ошибка ввода зарплаты. Некорректное значение. Повторите ввод.");
@@ -63,8 +66,7 @@ class Program
                     while (isHireYearNotValid)
                     {
                         Console.Write("Введите год поступление на работу:");
-                        string strHireYear = Console.ReadLine()??"0";
-                        int hireYear = 0;
+                        string strHireYear = Console.ReadLine()??"0";                        ;
                         if (int.TryParse(strHireYear, out hireYear))
                         {
                             int currentYear = DateTime.Now.Year;
@@ -77,7 +79,11 @@ class Program
                         {
                             Console.WriteLine("Ошибка ввода. Введен некорректный год. Возможен ввод от 1995 до текущего года");
                         }                        
-                    }                                         
+                    }
+                    Worker worker = new Worker(surnameInitials, position, dec_salary, hireYear);
+                    workerList.Add(worker);
+                    Console.WriteLine("Работник успешно сохранен");
+                    Console.WriteLine();
                     break;
                 case "s":
                     break;
