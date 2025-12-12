@@ -131,8 +131,7 @@
         //Метод изменения дня поступления на работы
         public void SetEmploymentDate(UInt16 value)
         {
-            DateTime checkDate = new DateTime(1900, 1, 1);
-            DateTime 
+            DateTime checkDate = new DateTime(1900, 1, 1);              
             if (!(value < 1995))
             {
                 this.hireYear = value;

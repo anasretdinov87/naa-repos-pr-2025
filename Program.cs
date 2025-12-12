@@ -32,7 +32,7 @@ class Program
                     {
                         Console.Write("Введите название должности работника:");
                         string position = Console.ReadLine();
-                        if (string.IsNullOrEmpty(position))
+                        if (string.IsNullOrWhiteSpace(position))
                         {
                             Console.WriteLine("Ошибка ввода названия должности работника. Значение не может быть пустым. Повторите ввод.");
                         }
@@ -63,10 +63,21 @@ class Program
                     while (isHireYearNotValid)
                     {
                         Console.Write("Введите год поступление на работу:");
-                        string hireYear = Console.ReadLine();
-                        Uint16 currentYear
-                    }
-                                         
+                        string strHireYear = Console.ReadLine()??"0";
+                        int hireYear = 0;
+                        if (int.TryParse(strHireYear, out hireYear))
+                        {
+                            int currentYear = DateTime.Now.Year;
+                            if ((hireYear >= 1995) && (hireYear <= currentYear))
+                            {                                 
+                                isHireYearNotValid = false;
+                            }
+                        }                        
+                        if (isHireYearNotValid)
+                        {
+                            Console.WriteLine("Ошибка ввода. Введен некорректный год. Возможен ввод от 1995 до текущего года");
+                        }                        
+                    }                                         
                     break;
                 case "s":
                     break;
