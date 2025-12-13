@@ -1,24 +1,28 @@
-﻿namespace practice_synergy_worker
+﻿using System;
+using System.Text.Json;
+
+namespace practice_synergy_worker
 {
     internal class Worker
     {
         //Фамилия и инициалы работника
-        private string surnameInitials;
-        //Название занимаемой должности
-        private string position;
+        public string surnameInitials { get; set; }
+        //public занимаемой должности
+        public string position { get; set; }
         //Зарплата
-        private decimal salary;
+        public decimal salary { get; set; }
         //Год поступления на работу
-        private int hireYear;
+        public int hireYear { get; set; }
 
         //Конструктор по умолчанию
-        public Worker()
-        {
-            surnameInitials = "Unknown";
-            position = "Unknown";
-            salary = 0;
-            hireYear = 0;
-        }
+        //public Worker()
+        //{
+        //    surnameInitials = "Unknown";
+        //    position = "Unknown";
+        //    salary = 0;
+        //    hireYear = 0;
+        //}
+        public Worker() {}
         //Конструктор с четыремя параметрами
         public Worker(string surnameInitials, string position, decimal salary, int hireYear)
         {
@@ -175,6 +179,14 @@
                 case "employmentDate":
                     throw new ArgumentException("Hire year cannot be earlier than 1995");
             }
+        }
+        public List<Worker> GetWorkersFromFile()   //Загрузка рабочих из файла workers.json. Файл в корне проекта Visual Studio
+        {           
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string filePath = Path.Combine(projectDirectory, "..", "workers.json");
+            string content = File.ReadAllText(filePath);
+            List<Worker> workers = JsonSerializer.Deserialize<List<Worker>>(content);
+            return workers;
         }
     }
 }

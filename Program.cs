@@ -6,12 +6,13 @@ class Program
         
         Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
         List<Worker> workerList = new List<Worker>();
+        Worker workerForFileDownload = new Worker();
         while (isWorkNotComplete) {
             string surnameInitials = "";
             string position = "";
             decimal dec_salary = 0;
             int hireYear = 0;
-            Console.WriteLine("Команды: w - для ввода нового работника, s - для поиска работников с определенным стажем, exit - выход из програмы");
+            Console.WriteLine("Команды: w - для ввода нового работника, s - для поиска работников с определенным стажем, f - Добавить данные работников из файла workers.json, exit - выход из програмы");
             Console.Write("Ввод команды:");
             string command = Console.ReadLine()??"no_command";
             switch (command)
@@ -86,6 +87,21 @@ class Program
                     Console.WriteLine();
                     break;
                 case "s":
+                    break;
+                case "f":
+                    try
+                    {
+                        List<Worker> temp_workers = new List<Worker>();
+                        temp_workers = workerForFileDownload.GetWorkersFromFile();
+                        workerList.AddRange(temp_workers);
+                        Console.WriteLine($"Успешно добавлено {temp_workers.Count()} записей из файла workers.json");
+                        Console.WriteLine();
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine($"Ошибка. Не удалось загрузить данные из файла workers.json -  {ex}");
+                        Console.WriteLine();
+                    }
                     break;
                 case "exit":
                     isWorkNotComplete = false;

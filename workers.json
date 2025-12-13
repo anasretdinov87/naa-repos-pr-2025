@@ -1,0 +1,92 @@
+[
+  {
+    "surnameInitials": "Иванов Алексей Петрович",
+    "position": "Профессор",
+    "salary": 125000,
+    "hireYear": 2018
+  },
+  {
+    "surnameInitials": "Петрова Мария Сергеевна",
+    "position": "Доцент",
+    "salary": 95000,
+    "hireYear": 2020
+  },
+  {
+    "surnameInitials": "Сидоров Дмитрий Иванович",
+    "position": "Старший преподаватель",
+    "salary": 78000,
+    "hireYear": 2021
+  },
+  {
+    "surnameInitials": "Кузнецова Анна Владимировна",
+    "position": "Ассистент",
+    "salary": 55000,
+    "hireYear": 2023
+  },
+  {
+    "surnameInitials": "Морозов Евгений Александрович",
+    "position": "Заведующий кафедрой",
+    "salary": 140000,
+    "hireYear": 2017
+  },
+  {
+    "surnameInitials": "Фёдорова Ольга Николаевна",
+    "position": "Научный сотрудник",
+    "salary": 85000,
+    "hireYear": 2019
+  },
+  {
+    "surnameInitials": "Николаев Андрей Викторович",
+    "position": "Лаборант",
+    "salary": 42000,
+    "hireYear": 2022
+  },
+  {
+    "surnameInitials": "Соколова Елена Дмитриевна",
+    "position": "Методист",
+    "salary": 68000,
+    "hireYear": 2020
+  },
+  {
+    "surnameInitials": "Павлов Сергей Михайлович",
+    "position": "Ведущий инженер",
+    "salary": 92000,
+    "hireYear": 2018
+  },
+  {
+    "surnameInitials": "Васильева Ирина Александровна",
+    "position": "Специалист по кадрам",
+    "salary": 65000,
+    "hireYear": 2021
+  },  
+  {
+    "surnameInitials": "Щербаков Роман Игоревич",
+    "position": "Инженер-программист",
+    "salary": 110000,
+    "hireYear": 2022
+  },
+  {
+    "surnameInitials": "Громова Наталья Константиновна",
+    "position": "Библиотекарь",
+    "salary": 52000,
+    "hireYear": 2024
+  },
+  {
+    "surnameInitials": "Лебедев Виктор Павлович",
+    "position": "Техник",
+    "salary": 48000,
+    "hireYear": 2023
+  },
+  {
+    "surnameInitials": "Орлова Светлана Михайловна",
+    "position": "Секретарь учебной части",
+    "salary": 58000,
+    "hireYear": 2021
+  },
+  {
+    "surnameInitials": "Михайлов Артём Денисович",
+    "position": "Младший научный сотрудник",
+    "salary": 72000,
+    "hireYear": 2020
+  }
+]
