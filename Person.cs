@@ -13,12 +13,26 @@ namespace practice_synergy_worker
         private string _birthPlace; //Место рождения
 
         public Person() { } //Конструктор по умолчанию
-        public Person(string fullName, DateTime birthday, string birthPlace)
+        public Person(string fullName, DateTime birthday, string birthPlace) //Конструктор с тремя полями
         {
             FullName = fullName;
             Birthday = birthday;
             BirthPlace = birthPlace;
         }
+        public Person(string fullName, DateTime birthday) //Конструктор с двумя полями
+        {
+            FullName = fullName;
+            Birthday = birthday;
+            BirthPlace = "unknown";
+        }
+        public Person(string fullName) //Конструктор с одним полем
+        {
+            FullName = fullName;
+            Birthday = new DateTime(1900,1,1);
+            BirthPlace = "unknown";
+        }
+        //-----------------------------------------
+        // Методы изменения и вывода полей
         public string FullName
         {
             get => _fullName;
@@ -34,6 +48,6 @@ namespace practice_synergy_worker
             get => _birthPlace; 
             set => _birthPlace = value;
         }
-        public override string ToString() => FullName;
+        //-----------------------------------------        
     }
 }
