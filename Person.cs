@@ -8,20 +8,31 @@ namespace practice_synergy_worker
 {
     internal class Person
     {      
-        private string fullName;  //Полное имя сотрудника
-        private DateTime birthday; //Дата рождения
-        private string birthPlace; //Место рождения
-        public void SetFullName(string value)
+        private string _fullName;  //Полное имя сотрудника
+        private DateTime _birthday; //Дата рождения
+        private string _birthPlace; //Место рождения
+
+        public Person(string fullName, DateTime birthday, string birthPlace)
         {
-            this.fullName = value;
+            FullName = fullName;
+            Birthday = birthday;
+            BirthPlace = birthPlace;
         }
-        public void SetBirthday(DateTime value)
+        public string FullName
         {
-            this.birthday = value;
+            get => _fullName;
+            set => _fullName = value;
         }
-        public void SetBirthPlace(string value)
+        public DateTime Birthday
         {
-            this.birthPlace = value;
+            get => _birthday;
+            set => _birthday = value;
         }
+        public string BirthPlace
+        {
+            get => _birthPlace; 
+            set => _birthPlace = value;
+        }
+        public override string ToString() => FullName;
     }
 }
