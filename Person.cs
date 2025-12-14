@@ -12,6 +12,7 @@ namespace practice_synergy_worker
         private DateTime _birthday; //Дата рождения
         private string _birthPlace; //Место рождения
 
+        public Person() { } //Конструктор по умолчанию
         public Person(string fullName, DateTime birthday, string birthPlace)
         {
             FullName = fullName;

@@ -6,14 +6,15 @@ namespace practice_synergy_worker
 {
     internal class Worker:Person, IDisposable
     {
-        private FileStream _fileStream;
-        private bool _disposed;
-        private string _position;
-        private decimal _salary;
-        private int _hireYear;
-        private string AcademicDegree; //учёная степень
-        private string AcademicRank; //учёное звание
-        private Boolean IsResearcher; //признак научного сотрудника
+        private FileStream _fileStream;    //Поток файла
+        private bool _disposed;       //Флаг, указывающий, был ли объект утилизирован
+
+        private string _position;  //должность
+        private decimal _salary;   //зарплата
+        private int _hireYear;  //год трудоустройства
+        private string _academicDegree; //учёная степень
+        private string _academicRank; //учёное звание
+        private Boolean _isResearcher; //признак научного сотрудника
                          
         public Worker(
             string fullName,
@@ -21,12 +22,18 @@ namespace practice_synergy_worker
             string birthPlace,
             string position,
             decimal salary,
-            int hireYear)
+            int hireYear,
+            string academicDegree,
+            string academicRank,
+            Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
         {
             Position = position;
             Salary = salary;
             HireYear = hireYear;
+            AcademicDegree = academicDegree;
+            AcademicRank = academicRank;
+            IsResearcher = isResearcher;
         }
         public string Position
         {
@@ -44,8 +51,17 @@ namespace practice_synergy_worker
             set => _hireYear = value;
         }
         public int WorkExperienceYears => DateTime.Today.Year - HireYear;
-
-        public Worker() { }  //Конструктор по умолчанию
+        public Worker(): base() {    //Конструктор по умолчанию
+            FullName = "unknown";
+            Birthday = new DateTime(1900, 1, 1);
+            BirthPlace = "unknown";
+            Position = "unknown";
+            Salary = 0;
+            HireYear = 0;
+            AcademicDegree = "unknown";
+            AcademicRank = "unknown";
+            IsResearcher = false;
+        }  
         
 
         //Конструктор с четыремя параметрами
