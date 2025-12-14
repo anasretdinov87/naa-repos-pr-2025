@@ -9,12 +9,12 @@ namespace practice_synergy_worker
         private FileStream _fileStream;    //Поток файла
         private bool _disposed;       //Флаг, указывающий, был ли объект утилизирован
 
-        private string _position;  //должность
-        private decimal _salary;   //зарплата
-        private int _hireYear;  //год трудоустройства
-        private string _academicDegree; //учёная степень
-        private string _academicRank; //учёное звание
-        private Boolean _isResearcher; //признак научного сотрудника
+        private string _position = "unknown";  //должность
+        private decimal _salary = 0;   //зарплата
+        private int _hireYear = 1900;  //год трудоустройства
+        private string _academicDegree = "unknown"; //учёная степень
+        private string _academicRank = "unknown"; //учёное звание
+        private Boolean _isResearcher = false; //признак научного сотрудника
                          
         public Worker(   //Конструктор со всеми полями
             string fullName,
@@ -153,7 +153,7 @@ namespace practice_synergy_worker
         public string Position
         {
             get => _position;
-            set => _position = value;
+            set => _position = value ?? "unknown";
         }
         public decimal Salary
         {
@@ -168,12 +168,12 @@ namespace practice_synergy_worker
         public string AcademicDegree
         {
             get => _academicDegree;
-            set => _academicDegree = value;
+            set => _academicDegree = value ?? "unknown";
         }
         public string AcademicRank
         {
             get => _academicRank;
-            set => _academicRank = value;
+            set => _academicRank = value ?? "unknown";
         }
         public Boolean IsResearcher
         {
@@ -182,17 +182,18 @@ namespace practice_synergy_worker
         }
         //-----------------------------------------
         public int WorkExperienceYears => DateTime.Today.Year - HireYear; //Вывод стажа
-        public Worker(): base() {    //Конструктор по умолчанию
-            FullName = "unknown";
-            Birthday = new DateTime(1900, 1, 1);
-            BirthPlace = "unknown";
-            Position = "unknown";
-            Salary = 0;
-            HireYear = 0;
-            AcademicDegree = "unknown";
-            AcademicRank = "unknown";
-            IsResearcher = false;
-        }
+        //public Worker(): base() {    //Конструктор по умолчанию
+        //    FullName = "unknown";
+        //    Birthday = new DateTime(1900, 1, 1);
+        //    BirthPlace = "unknown";
+        //    Position = "unknown";
+        //    Salary = 0;
+        //    HireYear = 0;
+        //    AcademicDegree = "unknown";
+        //    AcademicRank = "unknown";
+        //    IsResearcher = false;
+        //}
+        public Worker(): base() { }   //Конструктор по умолчанию
         public List<Worker> GetWorkersFromFile()   //Загрузка рабочих из файла workers.json. Файл в корне проекта Visual Studio
         {           
             string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;

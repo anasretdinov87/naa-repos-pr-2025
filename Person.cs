@@ -8,9 +8,9 @@ namespace practice_synergy_worker
 {
     internal class Person
     {      
-        private string _fullName;  //Полное имя сотрудника
-        private DateTime _birthday; //Дата рождения
-        private string _birthPlace; //Место рождения
+        private string _fullName = "unknown";  //Полное имя сотрудника
+        private DateTime _birthday = new DateTime(1900,1,1); //Дата рождения
+        private string _birthPlace = "unknown"; //Место рождения
 
         public Person() { } //Конструктор по умолчанию
         public Person(string fullName, DateTime birthday, string birthPlace) //Конструктор с тремя полями
@@ -36,7 +36,7 @@ namespace practice_synergy_worker
         public string FullName
         {
             get => _fullName;
-            set => _fullName = value;
+            set => _fullName = value??"unknown";
         }
         public DateTime Birthday
         {
@@ -46,7 +46,7 @@ namespace practice_synergy_worker
         public string BirthPlace
         {
             get => _birthPlace; 
-            set => _birthPlace = value;
+            set => _birthPlace = value ?? "unknown";
         }
         //-----------------------------------------        
     }

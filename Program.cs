@@ -113,8 +113,8 @@ class Program
                     Boolean isWorkExperienceNotValid = true; //Флаг корректности ввода значения стажа для поиска
                     while (isWorkExperienceNotValid)
                     {
-                        Console.WriteLine("Введите искомый стаж работы");
-                        string strSearchWorkExperience = Console.ReadLine();
+                        Console.Write("Введите искомый стаж работы: ");
+                        string strSearchWorkExperience = Console.ReadLine();                        
                         if (!string.IsNullOrWhiteSpace(strSearchWorkExperience)){
                             int searchWorkExperience = -1;
                                  if (int.TryParse(strSearchWorkExperience, out searchWorkExperience))
@@ -124,8 +124,8 @@ class Program
                                         List<Worker> resultListWorkers = new List<Worker>();
                                         resultListWorkers = workerForGetData.GetWorkersWithWorkExperience(workerList, searchWorkExperience);
                                         if (resultListWorkers.Count > 0)
-                                        {
-                                            Console.WriteLine($"Найдено {resultListWorkers.Count} работников у которых стаж привышает значение {strSearchWorkExperience}");
+                                        {                                           
+                                            Console.WriteLine($"\nНайдено {resultListWorkers.Count} работников у которых стаж привышает значение {strSearchWorkExperience}:");
                                             foreach (Worker tempWorker in resultListWorkers)
                                             {
                                             Console.WriteLine(tempWorker.FullName);
@@ -165,7 +165,7 @@ class Program
                     isWorkNotComplete = false;
                     break;
                 default:
-                    Console.WriteLine("Несуществующая команда. Повторите ввод.");
+                    Console.WriteLine("Несуществующая команда. Повторите ввод.\n");
                     break;
             }
         }       
