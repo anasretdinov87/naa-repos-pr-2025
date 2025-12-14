@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Text;
 using System.Text.Json;
 
 namespace practice_synergy_worker
 {
-    internal class Worker
+    internal class Worker :IDisposable
     {
+        private FileStream _fileStream;
+        private bool _disposed;
         //Фамилия и инициалы работника
         public string surnameInitials { get; set; }
         //public занимаемой должности
@@ -184,9 +187,46 @@ namespace practice_synergy_worker
         {           
             string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             string filePath = Path.Combine(projectDirectory, "..", "workers.json");
-            string content = File.ReadAllText(filePath);
+            if (string.IsNullOrWhiteSpace(filePath))
+                throw new ArgumentException("File path cannot be empty");
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException("File not found");
+            //string content = File.ReadAllText(filePath);
+            _fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            string content = LoadTextFile();
             List<Worker> workers = JsonSerializer.Deserialize<List<Worker>>(content);
             return workers;
+        }
+         public string LoadTextFile()
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(Worker));
+            
+            using(var reader = new StreamReader(_fileStream, Encoding.UTF8))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _fileStream?.Close();
+                    _fileStream?.Dispose();
+                }
+                _disposed = true;
+            }
+        }
+        ~Worker()
+        {
+            Dispose(false);
         }
         public List<Worker> GetWorkersWithWorkExperience(List<Worker> workers, int searchWorkExperience)
         {

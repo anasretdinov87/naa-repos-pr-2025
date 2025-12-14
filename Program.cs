@@ -22,7 +22,7 @@ class Program
                     while (isSurnameInitialsNotValid)
                     {
                         Console.Write("Введите фамилию и инициалы работника:");
-                        surnameInitials = Console.ReadLine();
+                        surnameInitials = Console.ReadLine()??"";
                         if (string.IsNullOrWhiteSpace(surnameInitials))
                         {
                             Console.WriteLine("Ошибка ввода фамилии и инициалов работника. Значение не может быть пустым. Повторите ввод.");
