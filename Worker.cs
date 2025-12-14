@@ -188,5 +188,19 @@ namespace practice_synergy_worker
             List<Worker> workers = JsonSerializer.Deserialize<List<Worker>>(content);
             return workers;
         }
+        public List<Worker> GetWorkersWithWorkExperience(List<Worker> workers, int searchWorkExperience)
+        {
+            List<Worker> findedWorkers = new List<Worker>();
+            foreach (Worker worker in workers)
+            {
+                int currentYear = DateTime.Now.Year;
+                int workerHireYear = worker.hireYear;
+                if (currentYear - workerHireYear > searchWorkExperience)
+                {
+                    findedWorkers.Add(worker);
+                }
+            }
+            return findedWorkers;
+        }
     }
 }

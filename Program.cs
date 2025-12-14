@@ -6,7 +6,7 @@ class Program
         
         Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
         List<Worker> workerList = new List<Worker>();
-        Worker workerForFileDownload = new Worker();
+        Worker workerForGetData = new Worker();
         while (isWorkNotComplete) {
             string surnameInitials = "";
             string position = "";
@@ -87,12 +87,40 @@ class Program
                     Console.WriteLine();
                     break;
                 case "s":
+                    Boolean isWorkExperienceNotValid = true; //Флаг корректности ввода значения стажа для поиска
+                    while (isWorkExperienceNotValid)
+                    {
+                        Console.WriteLine("Введите искомый стаж работы");
+                        string strSearchWorkExperience = Console.ReadLine();
+                        if (!string.IsNullOrWhiteSpace(strSearchWorkExperience)){
+                            int searchWorkExperience = -1;
+                                 if (int.TryParse(strSearchWorkExperience, out searchWorkExperience))
+                                {
+                                   if (searchWorkExperience >= 0)
+                                    {
+                                        List<Worker> resultListWorkers = new List<Worker>();
+                                        resultListWorkers = workerForGetData.GetWorkersWithWorkExperience(workerList, searchWorkExperience);
+                                        Console.WriteLine($"Найдено {resultListWorkers.Count} работников у которых стаж привышает значение {strSearchWorkExperience}");
+                                        foreach (Worker tempWorker in resultListWorkers)
+                                        {
+                                            Console.WriteLine(tempWorker.surnameInitials);
+                                        }
+                                        Console.WriteLine();
+                                        isWorkExperienceNotValid = false;
+                                    }
+                                }
+                        }
+                        if (isWorkExperienceNotValid)
+                        {
+                            Console.WriteLine("Ошибка. Введено некорректное значение, необходимо ввести целое положительное число.");
+                        }
+                    }                    
                     break;
                 case "f":
                     try
                     {
                         List<Worker> temp_workers = new List<Worker>();
-                        temp_workers = workerForFileDownload.GetWorkersFromFile();
+                        temp_workers = workerForGetData.GetWorkersFromFile();
                         workerList.AddRange(temp_workers);
                         Console.WriteLine($"Успешно добавлено {temp_workers.Count()} записей из файла workers.json");
                         Console.WriteLine();
