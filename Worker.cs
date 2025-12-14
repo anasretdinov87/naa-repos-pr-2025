@@ -4,13 +4,10 @@ using System.Text.Json;
 
 namespace practice_synergy_worker
 {
-    internal class Worker :IDisposable
+    internal class Worker:Person, IDisposable
     {
         private FileStream _fileStream;
         private bool _disposed;
-        //Фамилия и инициалы работника
-        public string surnameInitials { get; set; }
-        //public занимаемой должности
         public string position { get; set; }
         //Зарплата
         public decimal salary { get; set; }
