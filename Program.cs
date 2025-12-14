@@ -100,10 +100,17 @@ class Program
                                     {
                                         List<Worker> resultListWorkers = new List<Worker>();
                                         resultListWorkers = workerForGetData.GetWorkersWithWorkExperience(workerList, searchWorkExperience);
-                                        Console.WriteLine($"Найдено {resultListWorkers.Count} работников у которых стаж привышает значение {strSearchWorkExperience}");
-                                        foreach (Worker tempWorker in resultListWorkers)
+                                        if (resultListWorkers.Count > 0)
                                         {
+                                            Console.WriteLine($"Найдено {resultListWorkers.Count} работников у которых стаж привышает значение {strSearchWorkExperience}");
+                                            foreach (Worker tempWorker in resultListWorkers)
+                                            {
                                             Console.WriteLine(tempWorker.surnameInitials);
+                                                }
+                                        }
+                                        else
+                                        {
+                                        Console.WriteLine($"Не найдено работников у которых стаж превышает значение {strSearchWorkExperience}");
                                         }
                                         Console.WriteLine();
                                         isWorkExperienceNotValid = false;
