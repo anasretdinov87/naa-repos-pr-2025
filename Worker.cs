@@ -11,9 +11,9 @@ namespace practice_synergy_worker
 
         private string _position = "unknown";  //должность
         private decimal _salary = 0;   //зарплата
-        private int _hireYear = 1900;  //год трудоустройства
-        private string _academicDegree = "unknown"; //учёная степень
-        private string _academicRank = "unknown"; //учёное звание
+        private int _hireYear = 0;  //год трудоустройства
+        private string _academicDegree = "No"; //учёная степень
+        private string _academicRank = "No"; //учёное звание
         private Boolean _isResearcher = false; //признак научного сотрудника
                          
         public Worker(   //Конструктор со всеми полями
