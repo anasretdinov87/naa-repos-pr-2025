@@ -121,7 +121,7 @@ class Program
                     }
 
                     Boolean IsResearcherValueNotValid = true;
-                    while (isHireYearNotValid)
+                    while (IsResearcherValueNotValid)
                     {
                         Console.Write("Укажите занимается ли сотрудник научной работой (1 - Да/0 - Нет):");
                         string strIsResearcher = Console.ReadLine() ?? "unknown"; ;
