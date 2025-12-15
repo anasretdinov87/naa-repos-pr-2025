@@ -1,92 +1,199 @@
 [
   {
     "FullName": "Иванов Алексей Петрович",
-    "Position": "Профессор",
-    "Salary": 125000,
-    "HireYear": 2018
-  },
+    "Birthday": "1985-03-12",
+    "BirthPlace": "г. Москва, РСФСР",
+    "Position": "Профессор кафедры теоретической физики",
+    "Salary": 185000.50,
+    "HireYear": 2010,
+    "AcademicDegree": "доктор физико-математических наук",
+    "AcademicRank": "профессор",
+    "IsResearcher": true
+  }, 
   {
     "FullName": "Петрова Мария Сергеевна",
-    "Position": "Доцент",
-    "Salary": 95000,
-    "HireYear": 2020
+    "Birthday": "1990-07-24",
+    "BirthPlace": "г. Санкт-Петербург, РСФСР",
+    "Position": "Доцент кафедры биохимии",
+    "Salary": 125000.00,
+    "HireYear": 2018,
+    "AcademicDegree": "кандидат биологических наук",
+    "AcademicRank": "доцент",
+    "IsResearcher": true
   },
   {
     "FullName": "Сидоров Дмитрий Иванович",
-    "Position": "Старший преподаватель",
-    "Salary": 78000,
-    "HireYear": 2021
+    "Birthday": "1978-11-05",
+    "BirthPlace": "г. Новосибирск, РСФСР",
+    "Position": "Заведующий лабораторией",
+    "Salary": 160000.75,
+    "HireYear": 2005,
+    "AcademicDegree": "доктор химических наук",
+    "AcademicRank": "старший научный сотрудник",
+    "IsResearcher": true
   },
   {
     "FullName": "Кузнецова Анна Владимировна",
-    "Position": "Ассистент",
-    "Salary": 55000,
-    "HireYear": 2023
+    "Birthday": "1992-02-18",
+    "BirthPlace": "г. Екатеринбург, РСФСР",
+    "Position": "Младший научный сотрудник",
+    "Salary": 75000.00,
+    "HireYear": 2021,
+    "AcademicDegree": "кандидат физико-математических наук",
+    "AcademicRank": null,
+    "IsResearcher": true
   },
   {
     "FullName": "Морозов Евгений Александрович",
-    "Position": "Заведующий кафедрой",
-    "Salary": 140000,
-    "HireYear": 2017
+    "Birthday": "1965-09-30",
+    "BirthPlace": "г. Казань, РСФСР",
+    "Position": "Ведущий инженер учебно-методического отдела",
+    "Salary": 95000.25,
+    "HireYear": 2000,
+    "AcademicDegree": null,
+    "AcademicRank": null,
+    "IsResearcher": false
   },
   {
-    "FullName": "Фёдорова Ольга Николаевна",
-    "Position": "Научный сотрудник",
-    "Salary": 85000,
-    "HireYear": 2019
+    "FullName": "Волкова Ольга Николаевна",
+    "Birthday": "1988-05-14",
+    "BirthPlace": "г. Нижний Новгород, РСФСР",
+    "Position": "Старший преподаватель кафедры математики",
+    "Salary": 110000.00,
+    "HireYear": 2015,
+    "AcademicDegree": "кандидат физико-математических наук",
+    "AcademicRank": "доцент",
+    "IsResearcher": true
   },
   {
-    "FullName": "Николаев Андрей Викторович",
-    "Position": "Лаборант",
-    "Salary": 42000,
-    "HireYear": 2022
+    "FullName": "Соколов Андрей Владимирович",
+    "Birthday": "1976-12-22",
+    "BirthPlace": "г. Ростов-на-Дону, РСФСР",
+    "Position": "Главный научный сотрудник",
+    "Salary": 210000.00,
+    "HireYear": 2003,
+    "AcademicDegree": "доктор биологических наук",
+    "AcademicRank": "профессор",
+    "IsResearcher": true
   },
   {
-    "FullName": "Соколова Елена Дмитриевна",
-    "Position": "Методист",
-    "Salary": 68000,
-    "HireYear": 2020
+    "FullName": "Никитина Елена Михайловна",
+    "Birthday": "1991-08-07",
+    "BirthPlace": "г. Самара, РСФСР",
+    "Position": "Ассистент кафедры химии",
+    "Salary": 65000.00,
+    "HireYear": 2019,
+    "AcademicDegree": null,
+    "AcademicRank": null,
+    "IsResearcher": false
   },
   {
-    "FullName": "Павлов Сергей Михайлович",
-    "Position": "Ведущий инженер",
-    "Salary": 92000,
-    "HireYear": 2018
+    "FullName": "Фёдоров Сергей Иванович",
+    "Birthday": "1982-04-30",
+    "BirthPlace": "г. Пермь, РСФСР",
+    "Position": "Доцент кафедры информатики",
+    "Salary": 130000.00,
+    "HireYear": 2012,
+    "AcademicDegree": "кандидат технических наук",
+    "AcademicRank": "доцент",
+    "IsResearcher": true
   },
   {
-    "FullName": "Васильева Ирина Александровна",
-    "Position": "Специалист по кадрам",
-    "Salary": 65000,
-    "HireYear": 2021
-  },  
-  {
-    "FullName": "Щербаков Роман Игоревич",
-    "Position": "Инженер-программист",
-    "Salary": 110000,
-    "HireYear": 2022
+    "FullName": "Михайлова Татьяна Андреевна",
+    "Birthday": "1987-06-19",
+    "BirthPlace": "г. Уфа, РСФСР",
+    "Position": "Научный сотрудник лаборатории",
+    "Salary": 105000.00,
+    "HireYear": 2014,
+    "AcademicDegree": "кандидат химических наук",
+    "AcademicRank": null,
+    "IsResearcher": true
   },
   {
-    "FullName": "Громова Наталья Константиновна",
-    "Position": "Библиотекарь",
-    "Salary": 52000,
-    "HireYear": 2024
+    "FullName": "Алексеев Дмитрий Сергеевич",
+    "Birthday": "1979-01-27",
+    "BirthPlace": "г. Волгоград, РСФСР",
+    "Position": "Профессор кафедры биологии",
+    "Salary": 190000.00,
+    "HireYear": 2008,
+    "AcademicDegree": "доктор биологических наук",
+    "AcademicRank": "профессор",
+    "IsResearcher": true
   },
   {
-    "FullName": "Лебедев Виктор Павлович",
-    "Position": "Техник",
-    "Salary": 48000,
-    "HireYear": 2023
+    "FullName": "Орлова Ирина Васильевна",
+    "Birthday": "1993-10-11",
+    "BirthPlace": "г. Челябинск, РСФСР",
+    "Position": "Инженер-исследователь",
+    "Salary": 85000.00,
+    "HireYear": 2020,
+    "AcademicDegree": null,
+    "AcademicRank": null,
+    "IsResearcher": false
   },
   {
-    "FullName": "Орлова Светлана Михайловна",
-    "Position": "Секретарь учебной части",
-    "Salary": 58000,
-    "HireYear": 2021
+    "FullName": "Павлов Михаил Николаевич",
+    "Birthday": "1984-02-03",
+    "BirthPlace": "г. Саратов, РСФСР",
+    "Position": "Старший научный сотрудник",
+    "Salary": 170000.00,
+    "HireYear": 2011,
+    "AcademicDegree": "доктор физико-математических наук",
+    "AcademicRank": "ведущий научный сотрудник",
+    "IsResearcher": true
   },
   {
-    "FullName": "Михайлов Артём Денисович",
+    "FullName": "Васильева Светлана Петровна",
+    "Birthday": "1995-07-29",
+    "BirthPlace": "г. Краснодар, РСФСР",
+    "Position": "Лаборант кафедры физики",
+    "Salary": 55000.00,
+    "HireYear": 2022,
+    "AcademicDegree": null,
+    "AcademicRank": null,
+    "IsResearcher": false
+  },
+  {
+    "FullName": "Андреев Алексей Михайлович",
+    "Birthday": "1980-11-17",
+    "BirthPlace": "г. Воронеж, РСФСР",
+    "Position": "Доцент кафедры экологии",
+    "Salary": 128000.00,
+    "HireYear": 2009,
+    "AcademicDegree": "кандидат биологических наук",
+    "AcademicRank": "доцент",
+    "IsResearcher": true
+  },
+  {
+    "FullName": "Григорьева Наталья Сергеевна",
+    "Birthday": "1989-03-08",
+    "BirthPlace": "г. Омск, РСФСР",
+    "Position": "Методист учебного отдела",
+    "Salary": 72000.00,
+    "HireYear": 2016,
+    "AcademicDegree": null,
+    "AcademicRank": null,
+    "IsResearcher": false
+  },
+  {
+    "FullName": "Сергеев Иван Дмитриевич",
+    "Birthday": "1977-09-14",
+    "BirthPlace": "г. Тюмень, РСФСР",
+    "Position": "Ведущий научный сотрудник",
+    "Salary": 195000.00,
+    "HireYear": 2004,
+    "AcademicDegree": "доктор химических наук",
+    "AcademicRank": "главный научный сотрудник",
+    "IsResearcher": true
+  },
+  {
+    "FullName": "Захарова Ольга Владимировна",
+    "Birthday": "1994-05-25",
+    "BirthPlace": "г. Рязань, РСФСР",
     "Position": "Младший научный сотрудник",
-    "Salary": 72000,
-    "HireYear": 2020
-  }
-]
+    "Salary": 68000.00,
+    "HireYear": 2021,
+    "AcademicDegree": "кандидат химических наук",
+    "AcademicRank": "главный научный сотрудник",
+    "IsResearcher": true
+  }]
