@@ -252,6 +252,6 @@ namespace practice_synergy_worker
                 }
             }
             return findedWorkers;
-        }
+        }        
     }
 }
