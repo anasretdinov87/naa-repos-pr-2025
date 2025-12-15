@@ -86,6 +86,7 @@ class Program
                             isSalaryNotValid = false;
                         }
                     }
+
                     Boolean isHireYearNotValid = true; //Флаг корректности ввода года поступления на работу
                     while (isHireYearNotValid)
                     {
@@ -103,7 +104,44 @@ class Program
                         {
                             Console.WriteLine("Ошибка ввода. Введен некорректный год. Возможен ввод от 1995 до текущего года");
                         }                        
+                    }  
+                    
+                    Console.Write("Введите учёную степень сотрудника:");
+                    academicDegree = Console.ReadLine() ?? "No";
+                    if (string.IsNullOrWhiteSpace(academicDegree))
+                    {
+                        academicDegree = "No";
                     }
+
+                    Console.Write("Введите учёное звание сотрудника:");
+                    academicRank = Console.ReadLine() ?? "No";
+                    if (string.IsNullOrWhiteSpace(academicRank))
+                    {
+                        academicRank = "No";
+                    }
+
+                    Boolean IsResearcherValueNotValid = true;
+                    while (isHireYearNotValid)
+                    {
+                        Console.Write("Укажите занимается ли сотрудник научной работой (1 - Да/0 - Нет):");
+                        string strIsResearcher = Console.ReadLine() ?? "unknown"; ;
+                        if  (strIsResearcher == "1")
+                        {
+                            isResearcher = true;
+                            IsResearcherValueNotValid = false;
+                        } else if (strIsResearcher == "0")
+                        {
+                            isResearcher = false;
+                            IsResearcherValueNotValid = false;
+                        }                        
+                        
+                        if (isHireYearNotValid)
+                        {
+                            Console.WriteLine("Ошибка. Введено некорректное значение.");
+                        }
+                    }
+                    
+                    // признак того, что сотрудник занимается научной работой
                     Worker worker = new Worker(fullName, birthday, birthPlace,position, dec_salary, hireYear, academicDegree, academicRank, isResearcher);
                     workerList.Add(worker);
                     Console.WriteLine("Работник успешно сохранен");
