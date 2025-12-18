@@ -8,7 +8,6 @@ namespace practice_synergy_worker
     {
         private FileStream _fileStream;    //Поток файла
         private bool _disposed;       //Флаг, указывающий, был ли объект утилизирован
-
         private string _position = "unknown";  //должность
         private decimal _salary = 0;   //зарплата
         private int _hireYear = 0;  //год трудоустройства
