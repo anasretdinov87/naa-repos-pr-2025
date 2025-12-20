@@ -24,47 +24,45 @@ namespace practice_synergy_worker
             );
 
             // Проверяем свойства
-            Console.WriteLine($"ФИО: {worker.FullName}");           // → "Иванов И. И."
+            Console.WriteLine($"\nФИО: {worker.FullName}");           // → "Иванов И. И."
             Console.WriteLine($"Должность: {worker.Position}");         // → "Доцент"
             Console.WriteLine($"Зарплата: {worker.Salary}");            // → 75000.00
             Console.WriteLine($"Учёная степень: {worker.AcademicDegree}"); // → "к. ф.-м. н."
-            Console.WriteLine($"Научный сотрудник: {worker.IsResearcher}"); // → true
+            Console.WriteLine($"Научный сотрудник: {worker.IsResearcher}\n"); // → true
 
             // Шаг 3: проверяем стаж (на 2025 год)
             int expectedExperience = 2025 - 2010; // 15 лет
-            Console.WriteLine($"Стаж: {worker.WorkExperienceYears} лет"); // → 15
+            Console.WriteLine($"Стаж: {worker.WorkExperienceYears} лет\n"); // → 15
 
             if (worker.WorkExperienceYears == expectedExperience)
-                Console.WriteLine("Тест 1 пройден: данные сохранены корректно.");
+                Console.WriteLine("Тест 1 пройден: данные сохранены корректно.\n");
             else
-                Console.WriteLine("Тест 1 НЕ пройден: ошибка в расчёте стажа.");
+                Console.WriteLine("Тест 1 НЕ пройден: ошибка в расчёте стажа.\n");
         }
         public void Test2()
         {
-            Worker workerInstance = new Worker();
-
+            Worker worker = new Worker();
             try
             {
-                List<Worker> workers = workerInstance.GetWorkersFromFile();
-
-                Console.WriteLine($"Загружено {workers.Count} работников из файла.");
-
+                List<Worker> workers = worker.GetWorkersFromFile();
+                Console.WriteLine($"\nЗагружено {workers.Count} работников из файла.");
                 foreach (Worker w in workers)
                 {
                     Console.WriteLine($"- {w.FullName}, должность: {w.Position}, стаж: {w.WorkExperienceYears} лет");
                 }
 
-                Console.WriteLine("Тест 2 пройден: файл успешно загружен и десериализован.");
+                Console.WriteLine("\nТест 2 пройден: файл успешно загружен и десериализован.\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Тест 2 НЕ пройден: ошибка при загрузке файла: {ex.Message}");
+                Console.WriteLine($"\nТест 2 НЕ пройден: ошибка при загрузке файла: {ex.Message}\n");
             }
         }
             public void Test3()
             {
+            Worker worker = new Worker();
             // Шаг 1: создаём список работников
-            List<Worker> allWorkers = new List<Worker>
+            List<Worker> workerList = new List<Worker>
 {
     new Worker("Алексеев А. А.", new DateTime(1980, 1, 1), "г. Казань", "Старший преподаватель", 60000, 2008, "к. п. н.", "доцент", true),
     new Worker("Борисова Б. Б.", new DateTime(1990, 6, 15), "г. Екатеринбург", "Ассистент", 45000, 2022, "нет", "нет", false),
@@ -73,10 +71,10 @@ namespace practice_synergy_worker
 
             // Шаг 2: ищем работников со стажем > 10 лет (на 2025 год)
             int requiredExperience = 10;
-            List<Worker> filteredWorkers = workerInstance.GetWorkersWithWorkExperience(allWorkers, requiredExperience);
+            List<Worker> filteredWorkers = worker.GetWorkersWithWorkExperience(workerList, requiredExperience);
 
             // Шаг 3: выводим результат
-            Console.WriteLine($"Найдено работников со стажем > {requiredExperience} лет: {filteredWorkers.Count}");
+            Console.WriteLine($"\nНайдено работников со стажем > {requiredExperience} лет: {filteredWorkers.Count}");
             foreach (Worker w in filteredWorkers)
             {
                 int actualExperience = 2025 - w.HireYear;
@@ -88,13 +86,13 @@ namespace practice_synergy_worker
                 filteredWorkers.Any(w => w.FullName == "Алексеев А. А.") &&
                 filteredWorkers.Any(w => w.FullName == "Васильев В. В."))
             {
-                Console.WriteLine("Тест 3 пройден: фильтрация по стажу работает корректно.");
+                Console.WriteLine("Тест 3 пройден: фильтрация по стажу работает корректно.\n");
             }
             else
             {
-                Console.WriteLine("Тест 3 НЕ пройден: некорректный результат фильтрации.");
+                Console.WriteLine("Тест 3 НЕ пройден: некорректный результат фильтрации.\n");
             }
         }
         }
-    }
 }
+

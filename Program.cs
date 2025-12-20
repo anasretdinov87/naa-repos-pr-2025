@@ -2,14 +2,20 @@
 class Program
 {
     static void Main(string[] args)
-    {
-        
+    {        
         Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
         List<Worker> workerList = new List<Worker>();
         Worker workerForGetData = new Worker();
         
-        while (isWorkNotComplete) {            
-            Console.WriteLine("Команды: w - для ввода нового сотрудника, s - для поиска работников с определенным стажем, f - Добавить данные работников из файла workers.json, exit - выход из програмы");
+        while (isWorkNotComplete) {
+            Console.WriteLine("""                
+                Команды:                
+                w - для ввода нового сотрудника               
+                s - для поиска работников с определенным стажем
+                f - Добавить данные работников из файла workers.json
+                test - Запуск тестов
+                exit - выход из програмы                 
+                """);
             Console.Write("Ввод команды:");
             string command = Console.ReadLine()??"no_command";
             switch (command)
@@ -197,6 +203,30 @@ class Program
                     {
                         Console.WriteLine($"Ошибка. Не удалось загрузить данные из файла workers.json -  {ex}");
                         Console.WriteLine();
+                    }
+                    break;
+                case "test":
+                    Test test = new Test();
+                    Console.Write("""
+                        Список тестов:
+                        1 - Проверка стажа
+                        2 - Проверка загрузки сотрудников из файла
+                        3 - Поиск работников со стажем 10 лет
+
+                        Ввод команды:
+                        """);
+                    string test_command = Console.ReadLine() ?? "no_command";
+                    switch (test_command)
+                    {
+                        case "1":
+                            test.Test1();
+                            break;
+                        case "2":
+                            test.Test2();
+                            break;
+                        case "3":
+                            test.Test3();
+                            break;
                     }
                     break;
                 case "exit":
