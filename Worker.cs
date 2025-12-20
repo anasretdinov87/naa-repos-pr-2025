@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 
 namespace practice_synergy_worker
@@ -179,21 +178,11 @@ namespace practice_synergy_worker
             get => _isResearcher;
             set => _isResearcher = value;
         }
-        //-----------------------------------------
-        public int WorkExperienceYears => DateTime.Today.Year - HireYear; //Вывод стажа
-        //public Worker(): base() {    //Конструктор по умолчанию
-        //    FullName = "unknown";
-        //    Birthday = new DateTime(1900, 1, 1);
-        //    BirthPlace = "unknown";
-        //    Position = "unknown";
-        //    Salary = 0;
-        //    HireYear = 0;
-        //    AcademicDegree = "unknown";
-        //    AcademicRank = "unknown";
-        //    IsResearcher = false;
-        //}
+        //-----------------------------------------                
         public Worker(): base() { }   //Конструктор по умолчанию
-        public List<Worker> GetWorkersFromFile()   //Загрузка рабочих из файла workers.json. Файл в корне проекта Visual Studio
+        //-----------------------------------------
+        public int WorkExperienceYears => DateTime.Today.Year - HireYear; //Вывод стажа 
+        public List<Worker> GetWorkersFromFile()   //Загрузка сотрудников из файла workers.json. Файл в корне проекта. 
         {           
             string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             string filePath = Path.Combine(projectDirectory, "..", "workers.json");

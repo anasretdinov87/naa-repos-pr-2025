@@ -1,4 +1,5 @@
 ﻿using practice_synergy_worker;
+using System.Globalization;
 class Program
 {
     static void Main(string[] args)
@@ -48,13 +49,22 @@ class Program
                     while (isBirthdayNotValid)
                     {
                         Console.Write("Введите дату рождения сотрудника:");
-                        string strBirthday = Console.ReadLine() ?? "";                         
+                        string strBirthday = Console.ReadLine() ?? "";
+                       // string[] splitDate = strBirthday.Split('.');
+                       // strBirthday = $"{splitDate[1]}.{splitDate[0]}.{splitDate[2]}";
                         if (!string.IsNullOrWhiteSpace(strBirthday))
                         {
-                            if (DateTime.TryParse(strBirthday, out birthday))
+                            bool success = DateTime.TryParseExact(
+                                strBirthday,
+                                "dd.MM.yyyy",
+                                null,
+                                DateTimeStyles.None,
+                                out birthday
+                                );
+                            if (success)
                             {
                                 isBirthdayNotValid = false;
-                            }                           
+                            }
                         }
                         if(isBirthdayNotValid)
                         {
@@ -196,12 +206,12 @@ class Program
                         List<Worker> temp_workers = new List<Worker>();
                         temp_workers = workerForGetData.GetWorkersFromFile();
                         workerList.AddRange(temp_workers);
-                        Console.WriteLine($"Успешно добавлено {temp_workers.Count()} записей из файла workers.json");
+                        Console.WriteLine($"\nУспешно добавлено {temp_workers.Count()} записей из файла workers.json");
                         Console.WriteLine();
                     }
                     catch(Exception ex)
                     {
-                        Console.WriteLine($"Ошибка. Не удалось загрузить данные из файла workers.json -  {ex}");
+                        Console.WriteLine($"\nОшибка. Не удалось загрузить данные из файла workers.json -  {ex}");
                         Console.WriteLine();
                     }
                     break;
