@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {        
-        Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод работников
+        Boolean isWorkNotComplete = true;   //Флаг продолжать ли ввод команд
         List<Worker> workerList = new List<Worker>();
         Worker workerForGetData = new Worker();
         
@@ -49,9 +49,7 @@ class Program
                     while (isBirthdayNotValid)
                     {
                         Console.Write("Введите дату рождения сотрудника:");
-                        string strBirthday = Console.ReadLine() ?? "";
-                       // string[] splitDate = strBirthday.Split('.');
-                       // strBirthday = $"{splitDate[1]}.{splitDate[0]}.{splitDate[2]}";
+                        string strBirthday = Console.ReadLine() ?? "";                       
                         if (!string.IsNullOrWhiteSpace(strBirthday))
                         {
                             bool success = DateTime.TryParseExact(
