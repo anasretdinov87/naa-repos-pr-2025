@@ -25,14 +25,14 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
-        {
-            Position = position;
-            Salary = salary;
-            HireYear = hireYear;
-            AcademicDegree = academicDegree;
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = position;
+                    Salary = salary;
+                    HireYear = hireYear;
+                    AcademicDegree = academicDegree;
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         //---------------------------------------------
         //Различные варианты конструкторов
         public Worker(   
@@ -45,14 +45,14 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName, birthday)
-        {
-            Position = position;
-            Salary = salary;
-            HireYear = hireYear;
-            AcademicDegree = academicDegree;
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = position;
+                    Salary = salary;
+                    HireYear = hireYear;
+                    AcademicDegree = academicDegree;
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         public Worker(
             string fullName,           
             string position,
@@ -62,14 +62,14 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName)
-        {
-            Position = position;
-            Salary = salary;
-            HireYear = hireYear;
-            AcademicDegree = academicDegree;
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = position;
+                    Salary = salary;
+                    HireYear = hireYear;
+                    AcademicDegree = academicDegree;
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         public Worker(   
             string fullName,
             DateTime birthday,
@@ -79,14 +79,14 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
-        {
-            Position = "unknown";
-            Salary = 0;
-            HireYear = hireYear;
-            AcademicDegree = academicDegree;
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = "unknown";
+                    Salary = 0;
+                    HireYear = hireYear;
+                    AcademicDegree = academicDegree;
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         public Worker(   
             string fullName,
             DateTime birthday,
@@ -95,14 +95,14 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
-        {
-            Position = "unknown";
-            Salary = 0;
-            HireYear = 0;
-            AcademicDegree = academicDegree;
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = "unknown";
+                    Salary = 0;
+                    HireYear = 0;
+                    AcademicDegree = academicDegree;
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         public Worker(   
             string fullName,
             DateTime birthday,
@@ -110,42 +110,42 @@ namespace practice_synergy_worker
             string academicRank,
             Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
-        {
-            Position = "unknown";
-            Salary = 0;
-            HireYear = 0;
-            AcademicDegree = "unknown";
-            AcademicRank = academicRank;
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = "unknown";
+                    Salary = 0;
+                    HireYear = 0;
+                    AcademicDegree = "unknown";
+                    AcademicRank = academicRank;
+                    IsResearcher = isResearcher;
+                }
         public Worker(   
             string fullName,
             DateTime birthday,
             string birthPlace,         
             Boolean isResearcher)
             : base(fullName, birthday, birthPlace)
-        {
-            Position = "unknown";
-            Salary = 0;
-            HireYear = 0;
-            AcademicDegree = "unknown";
-            AcademicRank = "unknown";
-            IsResearcher = isResearcher;
-        }
+                {
+                    Position = "unknown";
+                    Salary = 0;
+                    HireYear = 0;
+                    AcademicDegree = "unknown";
+                    AcademicRank = "unknown";
+                    IsResearcher = isResearcher;
+                }
         public Worker(   
             string fullName,
             DateTime birthday,
             string birthPlace
             )
             : base(fullName, birthday, birthPlace)
-        {
-            Position = "unknown";
-            Salary = 0;
-            HireYear = 0;
-            AcademicDegree = "unknown";
-            AcademicRank = "unknown";
-            IsResearcher = false;
-        }
+                {
+                    Position = "unknown";
+                    Salary = 0;
+                    HireYear = 0;
+                    AcademicDegree = "unknown";
+                    AcademicRank = "unknown";
+                    IsResearcher = false;
+                }
         //-----------------------------------------
         // Методы изменения и вывода полей
         public string Position
@@ -182,30 +182,27 @@ namespace practice_synergy_worker
         public Worker(): base() { }   //Конструктор по умолчанию
         //-----------------------------------------
         public int WorkExperienceYears => DateTime.Today.Year - HireYear; //Вывод стажа 
-        public List<Worker> GetWorkersFromFile()   //Загрузка сотрудников из файла workers.json. Файл в корне проекта. 
-        {           
-            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            string filePath = Path.Combine(projectDirectory, "..", "workers.json");
-            if (string.IsNullOrWhiteSpace(filePath))
-                throw new ArgumentException("File path cannot be empty");
-            if (!File.Exists(filePath))
-                throw new FileNotFoundException("File not found");
-            //string content = File.ReadAllText(filePath);
-            _fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            string content = LoadTextFile();
-            List<Worker> workers = JsonSerializer.Deserialize<List<Worker>>(content);
-            return workers;
-        }
-         public string LoadTextFile()
-        {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(Worker));
-            
-            using(var reader = new StreamReader(_fileStream, Encoding.UTF8))
+        public List<Worker> GetWorkersFromFile()   //Загрузка сотрудников из файла workers.json. Файл в корне проекта.
             {
-                return reader.ReadToEnd();
+                string filePath = "workers.json";
+                if (string.IsNullOrWhiteSpace(filePath))
+                    throw new ArgumentException("File path cannot be empty");
+                if (!File.Exists(filePath))
+                    throw new FileNotFoundException("File not found");
+                string content = LoadTextFile(filePath);
+                List<Worker> workers = JsonSerializer.Deserialize<List<Worker>>(content);
+                return workers;
             }
-        }
+         public string LoadTextFile(string filePath)
+            {
+                _fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                if (_disposed)
+                    throw new ObjectDisposedException(nameof(Worker));                
+                using(var reader = new StreamReader(_fileStream, Encoding.UTF8))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
         public void Dispose()
         {
             Dispose(true);
@@ -227,7 +224,7 @@ namespace practice_synergy_worker
         {
             Dispose(false);
         }
-        public List<Worker> GetWorkersWithWorkExperience(List<Worker> workers, int searchWorkExperience)
+        public List<Worker> GetWorkersWithWorkExperience(List<Worker> workers, int searchWorkExperience)    //Метод получения списка сотрудников у которых стаж выше введеного значения
         {
             List<Worker> findedWorkers = new List<Worker>();
             foreach (Worker worker in workers)
