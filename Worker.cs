@@ -182,9 +182,8 @@ namespace practice_synergy_worker
         public Worker(): base() { }   //Конструктор по умолчанию
         //-----------------------------------------
         public int WorkExperienceYears => DateTime.Today.Year - HireYear; //Вывод стажа 
-        public List<Worker> GetWorkersFromFile()   //Загрузка сотрудников из файла workers.json. Файл в корне проекта.
-            {
-                string filePath = "workers.json";
+        public List<Worker> GetWorkersFromFile(string filePath = "workers.json")   //Загрузка сотрудников из файла workers.json. Файл в корне проекта.
+            {                  
                 if (string.IsNullOrWhiteSpace(filePath))
                     throw new ArgumentException("File path cannot be empty");
                 if (!File.Exists(filePath))

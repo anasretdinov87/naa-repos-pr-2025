@@ -201,11 +201,59 @@ class Program
                 case "f":
                     try
                     {
-                        List<Worker> temp_workers = new List<Worker>();
-                        temp_workers = workerForGetData.GetWorkersFromFile();
-                        workerList.AddRange(temp_workers);
-                        Console.WriteLine($"\nУспешно добавлено {temp_workers.Count()} записей из файла workers.json");
-                        Console.WriteLine();
+                        Boolean isFilePathNotValid = true; //Флаг корректного ввогда названия файла
+                        while (isFilePathNotValid)
+                        {
+                            Console.Write("""
+                            Файл должен находится в одной папке с программой.                            
+                            Для загрузки из файла workers.json нажимите Enter.
+                            Либо введите название файла(формат:***.json).
+                            exit - выход без загрузки файла.
+                            Ввод:
+                            """);
+                            List<Worker> temp_workers = new List<Worker>();
+                            string filePath = Console.ReadLine();
+                            if (string.IsNullOrWhiteSpace(filePath))
+                            {
+                                filePath = "default_file";
+                            }
+                            string[] splitFilePath = filePath.Split('.');
+                            if (splitFilePath.Length > 1)
+                            {
+                                if (splitFilePath[1] == "json")
+                                {
+                                    isFilePathNotValid = false;
+                                    temp_workers = workerForGetData.GetWorkersFromFile(filePath);
+                                    workerList.AddRange(temp_workers);
+                                    Console.WriteLine($"\nУспешно добавлено {temp_workers.Count()} записей из файла workers.json");
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Введено некоректное название файла\n");
+                                }
+                            }
+                            else
+                            {
+                                if (splitFilePath[0] == "exit")
+                                {
+                                    isFilePathNotValid = false;
+                                    Console.WriteLine("\n");
+                                }
+                                else if (splitFilePath[0] == "default_file")
+                                {
+                                    isFilePathNotValid = false;                                    
+                                    temp_workers = workerForGetData.GetWorkersFromFile();
+                                    workerList.AddRange(temp_workers);
+                                    Console.WriteLine($"\nУспешно добавлено {temp_workers.Count()} записей из файла workers.json");
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Введено некоректное название файла\n");
+                                }
+                            }
+                        }
                     }
                     catch(Exception ex)
                     {
