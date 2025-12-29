@@ -15,7 +15,7 @@ class Program
                 s - для поиска работников с определенным стажем
                 f - Добавить данные работников из файла workers.json
                 test - Запуск тестов
-                exit - выход из програмы                 
+                exit - выход из программы                 
                 """);
             Console.Write("Ввод команды:");
             string command = Console.ReadLine()??"no_command";
@@ -134,7 +134,7 @@ class Program
                         academicRank = "No";
                     }
 
-                    Boolean IsResearcherValueNotValid = true;
+                    Boolean IsResearcherValueNotValid = true;       //Флаг корректности ввода признака занимается ли сотрудник научной работой
                     while (IsResearcherValueNotValid)
                     {
                         Console.Write("Укажите занимается ли сотрудник научной работой (1 - Да/0 - Нет):");
@@ -155,7 +155,7 @@ class Program
                         }
                     }
                     
-                    // признак того, что сотрудник занимается научной работой
+                    
                     Worker worker = new Worker(fullName, birthday, birthPlace,position, dec_salary, hireYear, academicDegree, academicRank, isResearcher);
                     workerList.Add(worker);
                     Console.WriteLine("Работник успешно сохранен");
